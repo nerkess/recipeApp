@@ -1,3 +1,5 @@
+import { NewRecipeComponent } from './pages/recipes/new-recipe/new-recipe.component';
+import { ImagePickerComponent } from './shared/pickers/image-picker/image-picker.component';
 import { RecipesPage } from './pages/recipes/recipes.page';
 import { HomePage } from './pages/home/home.page';
 import { NgModule } from '@angular/core';
@@ -16,9 +18,11 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     HomePage,
-    RecipesPage
+    RecipesPage,
+    NewRecipeComponent,
+    ImagePickerComponent
   ],
-  entryComponents: [],
+  entryComponents: [NewRecipeComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

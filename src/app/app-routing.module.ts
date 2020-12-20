@@ -1,3 +1,4 @@
+import { NewRecipeComponent } from './pages/recipes/new-recipe/new-recipe.component';
 import { HomePage } from './pages/home/home.page';
 import { RecipesPage } from './pages/recipes/recipes.page';
 import { NgModule } from '@angular/core';
@@ -23,10 +24,17 @@ const routes: Routes = [
     children: [
       {
         path: ':detail',
-        component: RecipesPage
+        component: RecipesPage,
+        children: [
+          {
+            path: 'new',
+            component: NewRecipeComponent
+          },
+        ]
       }
     ]
   },
+  
 ];
 
 @NgModule({
