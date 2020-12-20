@@ -1,9 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>recipes</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngFor="let recipe of recipes">
+    <img src="{{recipe.imgUrl}}">
+    <ion-card-header>
+      <ion-card-subtitle>{{recipe.time}}</ion-card-subtitle>
+      <ion-card-title>{{recipe.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content padding>
+      {{recipe.description}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

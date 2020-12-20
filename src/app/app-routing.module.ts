@@ -1,3 +1,5 @@
+import { HomePage } from './pages/home/home.page';
+import { RecipesPage } from './pages/recipes/recipes.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -13,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
+    component: HomePage,
     pathMatch: 'full'
   },
   {
@@ -21,7 +23,7 @@ const routes: Routes = [
     children: [
       {
         path: ':detail',
-        loadChildren: () => import('./pages/recipes/recipes.module').then( m => m.RecipesPageModule)
+        component: RecipesPage
       }
     ]
   },
