@@ -1,7 +1,7 @@
 import { Recipe, RecipeData } from './../models/recipe';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, switchMap, take, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -34,11 +34,21 @@ export class RecipesService {
     );
   }
 
-  /*storeRecipes(){
-    this._recipes.forEach(recipe => {
-      this.http.post('https://recipelorenzapp-default-rtdb.firebaseio.com/big-hunger.json', {...recipe, id: null}).subscribe(response => {
-        console.log(response);
-      });
-    });
-  }*/
+  addRecipe(title: string, desc: string, time: string, folder: string){
+    let generatedId: string;
+    const newRecipe = new Recipe(Math.random.toString(),'', title, desc, time);
+
+    return this.http.post<{name: string}>('https://recipelorenzapp-default-rtdb.firebaseio.com/' + folder + '.json', {...newRecipe, id: null})
+    .pipe(
+      switchMap(resData => {
+        generatedId = resData.name;
+        return this._recipes;
+      }),
+      take(1),
+      tap(recipes => {
+        newRecipe.id = generatedId;
+        this._recipes.next(recipes.concat(newRecipe));
+      })
+    );
+  }
 }
