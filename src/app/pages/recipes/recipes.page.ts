@@ -24,17 +24,17 @@ export class RecipesPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.title = this.route.snapshot.paramMap.get('detail');
-    this.subscription = this.recipeService.recipes.subscribe(recipes => {
-      this.recipes = recipes;
-      console.log('this: ', this.recipes);
-    });
+    // this.subscription = this.recipeService.recipes.subscribe(recipes => {
+      //this.recipes = recipes;
+      //console.log('this: ', this.recipes);
+    //});
   }
 
   ionViewWillEnter(){
     this.isLoading = true;
-    this.recipeService.fetchRecipes().subscribe(() => {
-      this.isLoading = false;
-    });
+    //this.recipeService.fetchRecipes().subscribe(() => {
+      //this.isLoading = false;
+    //});
   }
 
   ngOnDestroy(){
