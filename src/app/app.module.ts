@@ -47,8 +47,7 @@ export function createTranslateLoader(http: HttpClient){
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    }),
-    TranslateHttpLoader
+    })
   ],
   providers: [
     StatusBar,
