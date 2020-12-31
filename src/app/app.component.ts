@@ -1,3 +1,4 @@
+import { LanguageService } from './services/language.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -53,7 +54,8 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private languageService: LanguageService
   ) {
     this.initializeApp();
   }
@@ -62,6 +64,8 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.languageService.setInitialAppLanguage();
     });
   }
 

@@ -4,6 +4,12 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Home</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="openLanguagePopover($event)">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +19,7 @@
       <img src="https://pinchofyum.com/wp-content/uploads/Moroccan-Chickpea-Bowls-Recipe.jpg">
     </ion-thumbnail>
     <ion-label>
-      <h1>Für kleinen Hunger</h1>
+      <h1>{{ 'big-hunger' | translate}}</h1>
     </ion-label>
   </ion-item>
 
@@ -22,7 +28,7 @@
       <img src="https://pinchofyum.com/wp-content/uploads/Moroccan-Chickpea-Bowls-Recipe.jpg">
     </ion-thumbnail>
     <ion-label>
-      <h1>Für großen Hunger</h1>
+      <h1>{{ 'small-hunger' | translate}}</h1>
     </ion-label>
   </ion-item>
 
@@ -31,7 +37,7 @@
       <img src="https://pinchofyum.com/wp-content/uploads/Moroccan-Chickpea-Bowls-Recipe.jpg">
     </ion-thumbnail>
     <ion-label>
-      <h1>Cocktails</h1>
+      <h1>{{ 'cocktails' | translate}}</h1>
     </ion-label>
   </ion-item>
 
@@ -40,6 +46,6 @@
       <img src="https://pinchofyum.com/wp-content/uploads/Moroccan-Chickpea-Bowls-Recipe.jpg">
     </ion-thumbnail>
     <ion-label>
-      <h1>Veganuary</h1>
+      <h1>{{ 'veganuary' | translate}}</h1>
     </ion-label>
   </ion-item>

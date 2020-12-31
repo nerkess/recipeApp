@@ -1,3 +1,4 @@
+import { LanguagePopoverPage } from './pages/language-popover/language-popover.page';
 import { NewRecipeComponent } from './pages/recipes/new-recipe/new-recipe.component';
 import { HomePage } from './pages/home/home.page';
 import { RecipesPage } from './pages/recipes/recipes.page';
@@ -33,6 +34,10 @@ const routes: Routes = [
         ]
       }
     ]
+  },
+  {
+    path: 'language-popover',
+    component: LanguagePopoverPage
   },
   
 ];
