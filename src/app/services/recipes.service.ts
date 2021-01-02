@@ -17,10 +17,11 @@ export class RecipesService {
     return this._recipes.asObservable();
   }
 
-  fetchRecipes(){
-    return this.http.get<{[key: string]: RecipeData}>('https://recipelorenzapp-default-rtdb.firebaseio.com/big-hunger.json')
+  fetchRecipes(folder: string){
+    return this.http.get<{[key: string]: RecipeData}>('https://recipelorenzapp-default-rtdb.firebaseio.com/' + folder + '.json')
     .pipe(map(response => {
       const recipes = [];
+      console.log('Response: ', response);
       for(const key in response){
         if(response.hasOwnProperty(key)){
           recipes.push(new Recipe(key, response[key].imgUrl, response[key].title, response[key].time, response[key].description))
@@ -36,7 +37,11 @@ export class RecipesService {
 
   addRecipe(title: string, desc: string, time: string, folder: string){
     let generatedId: string;
-    const newRecipe = new Recipe(Math.random.toString(),'', title, desc, time);
+    const newRecipe = new Recipe(Math.random.toString(),
+                                'https://pinchofyum.com/wp-content/uploads/Moroccan-Chickpea-Bowls-Recipe.jpg', 
+                                title, 
+                                desc, 
+                                time);
 
     return this.http.post<{name: string}>('https://recipelorenzapp-default-rtdb.firebaseio.com/' + folder + '.json', {...newRecipe, id: null})
     .pipe(

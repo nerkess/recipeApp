@@ -1,6 +1,17 @@
 {
-    "big-hunger": "ba",
-    "small-hunger": "ba",
-    "cocktails": "ba",
-    "veganuary": "ba"
+    "nerkes": "Нәркәс",
+    "recipe-app": "Рецепттар",
+    "home": "Home",
+    "no-results": "No recipes yet. We are looking into it, stay tuned!",
+
+    "title": "Атама",
+    "description": "Тасуирлама",
+    "time": "Ваҡыт",
+    "take-picture": "Фото эшләү",
+    "save": "Һаҡлау",
+
+    "big-hunger": "Бәләкәй асыҡ",
+    "small-hunger": "Ҙур асыҡ",
+    "cocktails": "Коктейлдар",
+    "veganuary": "Veganuary"
 }

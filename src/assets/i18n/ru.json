@@ -1,6 +1,17 @@
 {
-    "big-hunger": "ru",
-    "small-hunger": "ru",
-    "cocktails": "ru",
-    "veganuary": "ru"
+    "nerkes": "Неркес",
+    "recipe-app": "Рецепты",
+    "home": "Home",
+    "no-results": "Рецептов пока нет. Но скоро будут!",
+
+    "title": "Название",
+    "description": "Описание",
+    "time": "Время",
+    "take-picture": "Сделать фото",
+    "save": "Сохранить",
+
+    "big-hunger": "Для большого голода",
+    "small-hunger": "Для маленького голода",
+    "cocktails": "Коктейли",
+    "veganuary": "Veganuary"
 }

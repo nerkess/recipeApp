@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{title}}</ion-title>
+    <ion-title>{{folder}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,19 +13,26 @@
   </div>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="addRecipe()">
+    <ion-fab-button (click)="goToAddNewRecipePage()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 
-  <ion-card *ngFor="let recipe of recipes">
-    <img src="{{recipe.imgUrl}}">
-    <ion-card-header>
-      <ion-card-subtitle>{{recipe.time}}</ion-card-subtitle>
-      <ion-card-title>{{recipe.title}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content padding>
-      {{recipe.description}}
-    </ion-card-content>
-  </ion-card>
+  <div *ngIf="recipes.length > 0; else noresults">
+    <ion-card *ngFor="let recipe of recipes">
+      <img src="{{recipe.imgUrl}}">
+      <ion-card-header>
+        <ion-card-subtitle>{{recipe.time}}</ion-card-subtitle>
+        <ion-card-title>{{recipe.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{recipe.description}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ng-template #noresults>
+    <h4 class="ion-padding">{{'no-results' | translate}}</h4>
+  </ng-template>
+  
 </ion-content>

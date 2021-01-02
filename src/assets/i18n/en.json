@@ -1,4 +1,15 @@
 {
+    "nerkes": "Nerkes",
+    "recipe-app": "Recipe app",
+    "home": "Home",
+    "no-results": "No recipes yet. We are looking into it, stay tuned!",
+
+    "title": "Title",
+    "description": "Description",
+    "time": "Time",
+    "take-picture": "Take picture",
+    "save": "Save",
+
     "big-hunger": "For big hunger",
     "small-hunger": "For small hunger",
     "cocktails": "Cocktails",

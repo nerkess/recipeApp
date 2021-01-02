@@ -16,14 +16,14 @@ export class RecipesPage implements OnInit, OnDestroy {
   recipes: Recipe[];
   private subscription: Subscription;
   isLoading = false;
-  title: string;
+  folder: string;
 
   constructor(private route: ActivatedRoute, 
               private recipeService: RecipesService,
               private modalCtrl: ModalController) { }
 
   ngOnInit() {
-    this.title = this.route.snapshot.paramMap.get('detail');
+    this.folder = this.route.snapshot.paramMap.get('folder');
     this.subscription = this.recipeService.recipes.subscribe(recipes => {
       this.recipes = recipes;
       console.log('this: ', this.recipes);
@@ -32,7 +32,7 @@ export class RecipesPage implements OnInit, OnDestroy {
 
   ionViewWillEnter(){
     this.isLoading = true;
-    this.recipeService.fetchRecipes().subscribe(() => {
+    this.recipeService.fetchRecipes(this.folder).subscribe(() => {
       this.isLoading = false;
     });
   }
@@ -43,8 +43,13 @@ export class RecipesPage implements OnInit, OnDestroy {
     }
   }
 
-  addRecipe(){
-    this.modalCtrl.create({component: NewRecipeComponent})
+  goToAddNewRecipePage(){
+    this.modalCtrl.create({
+      component: NewRecipeComponent,
+      componentProps: {
+        'folder': this.folder
+      }
+    })
     .then(modalEl => {
       modalEl.present();
     });

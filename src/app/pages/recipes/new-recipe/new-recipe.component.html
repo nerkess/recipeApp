@@ -7,29 +7,29 @@
 <ion-content>
   <form [formGroup]="form">
     <ion-item>
-      <ion-label position="floating">Title</ion-label>
+      <ion-label position="floating">{{ 'title' | translate}}</ion-label>
       <ion-input type="text" autocomplete autocorrect formControlName="title"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Description</ion-label>
+      <ion-label position="floating">{{ 'description' | translate}}</ion-label>
       <ion-textarea rows="3" formControlName="desc"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Time</ion-label>
+      <ion-label position="floating">{{ 'time' | translate}}</ion-label>
       <ion-input type="number" formControlName="time"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="photoService.photos[0]">
       <ion-img [src]="photoService.photos[0].webviewPath"></ion-img>
     </ion-item>
     <ion-item>
       <ion-button (click)="addPhoto()">
         <ion-icon slot="start" name="camera"></ion-icon>
-        Take picture
+        {{ 'take-picture' | translate}}
       </ion-button>
     </ion-item>
 
-    <ion-button expand="block" padding>
-      Save
+    <ion-button expand="block" padding (click)="addRecipe()">
+      {{ 'save' | translate}}
     </ion-button>
   </form>
   

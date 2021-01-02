@@ -1,6 +1,17 @@
 {
+    "nerkes": "Nerkes",
+    "recipe-app": "Rezepte App",
+    "home": "Home",
+    "no-results": "Keine Rezepte vorhanden.",
+
+    "title": "Titel",
+    "description": "Beschreibung",
+    "time": "Zeit",
+    "take-picture": "Bild machen",
+    "save": "Speichern",
+
     "big-hunger": "Für großen Hunger",
-    "small-hunger": "Für kleiner Hunger",
+    "small-hunger": "Für kleinen Hunger",
     "cocktails": "Cocktails",
     "veganuary": "Veganuary"
 }
