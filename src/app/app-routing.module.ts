@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'language-popover',
     component: LanguagePopoverPage
+  },  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },
+
   
 ];
 
