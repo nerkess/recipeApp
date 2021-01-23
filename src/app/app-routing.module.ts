@@ -1,3 +1,4 @@
+import { AuthPage } from './auth/auth.page';
 import { LanguagePopoverPage } from './pages/language-popover/language-popover.page';
 import { NewRecipeComponent } from './pages/recipes/new-recipe/new-recipe.component';
 import { HomePage } from './pages/home/home.page';
@@ -6,19 +7,14 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
- /* {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
-  },*/
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    path: 'auth',
+    component: AuthPage 
   },
   {
     path: '',
     component: HomePage,
-    pathMatch: 'full'
+    pathMatch: 'full' 
   },
   {
     path: 'recipes',
@@ -38,17 +34,16 @@ const routes: Routes = [
   {
     path: 'language-popover',
     component: LanguagePopoverPage
-  },  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },
-
-  
+  {
+    path: 'home',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' })
   ],
   exports: [RouterModule]
 })

@@ -1,3 +1,4 @@
+import { AuthPageModule } from './auth/auth.module';
 import { LanguagePopoverPage } from './pages/language-popover/language-popover.page';
 import { NewRecipeComponent } from './pages/recipes/new-recipe/new-recipe.component';
 import { ImagePickerComponent } from './shared/pickers/image-picker/image-picker.component';
@@ -38,6 +39,7 @@ export function createTranslateLoader(http: HttpClient){
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    AuthPageModule,
     ReactiveFormsModule,
     IonicStorageModule.forRoot(),
     TranslateModule.forRoot({
